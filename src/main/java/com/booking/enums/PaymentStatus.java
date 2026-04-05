@@ -1,5 +1,8 @@
 package com.booking.enums;
 
-public class PaymentStatus {
-
+public enum PaymentStatus {
+    PENDING,
+    SUCCESS,
+    FAILED,
+    REFUNDED
 }

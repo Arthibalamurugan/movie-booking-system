@@ -1,5 +1,7 @@
 package com.booking.enums;
 
-public class SeatStatus {
-
+public enum SeatStatus {
+    AVAILABLE,
+    LOCKED,    // temporarily held during payment flow
+    BOOKED
 }

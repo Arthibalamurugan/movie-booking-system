@@ -1,5 +1,7 @@
 package com.booking.enums;
 
-public class BookingStatus {
-
+public enum BookingStatus {
+    CONFIRMED,
+    CANCELLED,
+    PENDING
 }
