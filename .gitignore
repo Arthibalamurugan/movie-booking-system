@@ -7,3 +7,5 @@ target/
 .idea/
 *.iml
 application-prod.properties
+uploads/qrcodes/
+uploads/posters/
