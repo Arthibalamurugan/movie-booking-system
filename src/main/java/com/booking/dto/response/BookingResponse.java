@@ -20,4 +20,5 @@ public class BookingResponse {
     private BookingStatus bookingStatus;
     private PaymentStatus paymentStatus;
     private LocalDateTime bookedAt;
+    private String qrCodeUrl;
 }

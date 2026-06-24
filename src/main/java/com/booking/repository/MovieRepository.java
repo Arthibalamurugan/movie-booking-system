@@ -1,4 +1,3 @@
-// MovieRepository.java
 package com.booking.repository;
 
 import com.booking.entity.Movie;
@@ -15,11 +14,13 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     Page<Movie> findByGenre(String genre, Pageable pageable);
 
     @Query("SELECT m FROM Movie m WHERE " +
-           "(:city IS NULL OR m.city = :city) AND " +
+           "(:city  IS NULL OR m.city  = :city)  AND " +
            "(:genre IS NULL OR m.genre = :genre) AND " +
-           "(:title IS NULL OR LOWER(m.title) LIKE LOWER(CONCAT('%', :title, '%')))")
-    Page<Movie> findWithFilters(@Param("city")  String city,
-                                @Param("genre") String genre,
-                                @Param("title") String title,
-                                Pageable pageable);
+           "(:title IS NULL OR LOWER(m.title) " +
+           "LIKE LOWER(CONCAT('%', :title, '%')))")
+    Page<Movie> findWithFilters(
+            @Param("city")  String city,
+            @Param("genre") String genre,
+            @Param("title") String title,
+            Pageable pageable);
 }

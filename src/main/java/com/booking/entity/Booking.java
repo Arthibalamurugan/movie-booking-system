@@ -43,4 +43,6 @@ public class Booking {
 
     @OneToOne(mappedBy = "booking", cascade = CascadeType.ALL)
     private Payment payment;
+    @Column(name = "qr_code_url")
+    private String qrCodeUrl;
 }

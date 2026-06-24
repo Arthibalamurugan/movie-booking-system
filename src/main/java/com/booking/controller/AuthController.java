@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.booking.dto.request.ForgotPasswordRequest;
+import com.booking.dto.request.ResetPasswordRequest;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -35,5 +37,35 @@ public class AuthController {
         AuthResponse response = authService.login(request);
         return ResponseEntity.ok(
                 ApiResponse.success("Login successful", response));
+    }
+    @PostMapping("/forgot-password")
+    public ResponseEntity<ApiResponse<String>>
+    forgotPassword(
+            @RequestBody
+            ForgotPasswordRequest request) {
+
+        authService.forgotPassword(request);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        "Password reset link sent",
+                        "Success"
+                )
+        );
+    }  
+    @PostMapping("/reset-password")
+    public ResponseEntity<ApiResponse<String>>
+    resetPassword(
+            @RequestBody
+            ResetPasswordRequest request) {
+
+        authService.resetPassword(request);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        "Password reset successful",
+                        "Success"
+                )
+        );
     }
 }
