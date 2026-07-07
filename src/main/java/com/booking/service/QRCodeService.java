@@ -28,6 +28,8 @@ public class QRCodeService {
 
             String filePath =
                     folder + fileName + ".png";
+            
+            System.out.println("QR SAVED TO: " + filePath);
 
             QRCodeWriter writer =
                     new QRCodeWriter();
@@ -59,5 +61,7 @@ public class QRCodeService {
                     "QR generation failed"
             );
         }
+        
     }
+    
 }
