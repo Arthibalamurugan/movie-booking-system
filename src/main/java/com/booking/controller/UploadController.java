@@ -45,7 +45,7 @@ public class UploadController {
         );
 
         String imageUrl =
-                "http://localhost:8080/posters/"
+                "https://powerful-healing-production.up.railway.app/posters/"
                         + fileName;
 
         return ResponseEntity.ok(
