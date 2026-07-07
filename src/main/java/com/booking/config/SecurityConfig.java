@@ -78,25 +78,30 @@ public class SecurityConfig {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+
         CorsConfiguration config = new CorsConfiguration();
 
-        // Allow requests from React frontend
-        config.setAllowedOrigins(List.of("http://localhost:3000"));
+        config.setAllowedOriginPatterns(List.of(
+                "http://localhost:3000",
+                "https://movie-booking-frontend-nu.vercel.app",
+                "https://*.vercel.app"
+        ));
 
-        // Allow these HTTP methods
-        config.setAllowedMethods(
-            List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(List.of(
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS"
+        ));
 
-        // Allow all headers including Authorization
         config.setAllowedHeaders(List.of("*"));
 
-        // Allow cookies and Authorization header
         config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
 
-        // Apply to all routes
         source.registerCorsConfiguration("/**", config);
 
         return source;
